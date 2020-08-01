@@ -4,7 +4,7 @@ import Game from './containers/Game'
 import './App.css'
 
 class App extends Component {
-	API_URL = 'https://spitwit-server.herokuapp.com/'
+	API_URL = 'https://fishbowl-gameserver.herokuapp.com/'
 
 	state = {
 		is_host: false,
