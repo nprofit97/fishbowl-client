@@ -21,7 +21,7 @@ class App extends Component {
 			if (game && game.round_number === 0) {
 				this.setState({ game: game, isLoading: false })
 			} else {
-				this.setState({ message: 'Game does not exist', isLoading: false })
+				this.setState({ message: 'Room not found.', isLoading: false })
 			}
 		})
 	}
@@ -87,7 +87,7 @@ class App extends Component {
 						<br />
 						<div>
 							{isLoading && <small>Loading...</small>}
-							{message && <small>Loading...</small>}
+							{message && <small>{message}</small>}
 						</div>
 					</div>
 				)}
