@@ -78,7 +78,7 @@ class App extends Component {
 					<Game game={game} is_host={is_host} apiUrl={this.API_URL} resetGame={this.resetGame} />
 				) : (
 					<div>
-						<h1 className='heading'>SpitWit</h1>
+						<h1 className='heading'>Fishbowl</h1>
 						<NewGameForm
 							handleEnterGame={this.handleEnterGame}
 							handleCreateNewGame={this.handleCreateNewGame}
