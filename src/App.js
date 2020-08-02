@@ -54,7 +54,7 @@ class App extends Component {
 	renderSpitWits = () => {
 		let emojis = []
 		for (let i = 0; i < 10; i++) {
-			emojis.push([ '🧠', '🧠', '🐠', '🐟', '😎' ][Math.floor(Math.random() * 5)])
+			emojis.push([ '😂', '🐳', '🐠', '🐙', '😎' ][Math.floor(Math.random() * 5)])
 		}
 
 		return (
