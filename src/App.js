@@ -49,14 +49,9 @@ class App extends Component {
 			.then((res) => res.json())
 			.then((game) => this.setState({ game: game, is_host: true, isLoading: false, message: '' }))
 	}
-
-	// Randomize the emojis for more fun
-	renderSpitWits = () => {
-		let emojis = []
-		for (let i = 0; i < 10; i++) {
-			emojis.push([ '😂', '🐳', '🐠', '🐙', '😂' ][Math.floor(Math.random() * 5)])
-		}
-
+	
+	renderBackgroundEmojis = () => {
+		let emojis = ['😂', '🐳', '🐠', '🐙', '😂', '🐳', '🐠', '🐙'', '😂', '🐳' ]
 		return (
 			<div className='area'>
 				<ul className='circles'>{emojis.map((emoji, i) => <li key={i}>{emoji}</li>)}</ul>
@@ -73,7 +68,7 @@ class App extends Component {
 
 		return (
 			<div className='App'>
-				{this.renderSpitWits()}
+				{this.renderBackgroundEmojis()}
 				{game ? (
 					<Game game={game} is_host={is_host} apiUrl={this.API_URL} resetGame={this.resetGame} />
 				) : (
