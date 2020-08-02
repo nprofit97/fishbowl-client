@@ -22,9 +22,9 @@ class Lobby extends Component {
 				<br />
 				<br />
 				{currPlayer &&
-					(players.length < 3 && isHost ? (
+					(players.length < 4 ? (
 						<p>
-							<small>You need at least 3 players to start the game.</small>
+							<small>Waiting for more players to join. You need at least 4 players to start the game.</small>
 						</p>
 					) : (
 						<p>
