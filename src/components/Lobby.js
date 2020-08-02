@@ -28,7 +28,7 @@ class Lobby extends Component {
 						</p>
 					) : (
 						<p>
-							<small>Waiting for host to start the game...</small>
+							<small>Waiting for {isHost ? 'you' : 'host'} to start the game...</small>
 						</p>
 					))}
 			</React.Fragment>
