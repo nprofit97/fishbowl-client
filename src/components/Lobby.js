@@ -22,15 +22,15 @@ class Lobby extends Component {
 				<br />
 				<br />
 				{currPlayer &&
-					(players.length < 3 && isHost ? (
+					players.length < 4 ? (
 						<p>
-							<small>You need at least 3 players to start the game.</small>
+							<small>Waiting on more players to join. You need at least 4 to start.</small>
 						</p>
 					) : (
 						<p>
-							<small>Waiting for host to start the game...</small>
+							<small>Waiting for {isHost ? 'you' : 'the host'} to start the game...</small>
 						</p>
-					))}
+					)}
 			</React.Fragment>
 		)
 	}
