@@ -86,7 +86,6 @@ class App extends Component {
 						/>
 						<br />
 						<div>
-							{isLoading && <small>Loading...</small>}
 							{message && <small>{message}</small>}
 						</div>
 					</div>
