@@ -47,7 +47,7 @@ class App extends Component {
 			}
 		})
 			.then((res) => res.json())
-			.then((game) => this.setState({ game: game, is_host: true, isLoading: false }))
+			.then((game) => this.setState({ game: game, is_host: true, isLoading: false, message: '' }))
 	}
 
 	// Randomize the emojis for more fun
