@@ -51,7 +51,7 @@ class App extends Component {
 	}
 	
 	renderBackgroundEmojis = () => {
-		let emojis = ['🤯', '🐳', '🐠', '🐙', '😂', '🐳', '🐠', '🥶', '😂', '🥳' ]
+		let emojis = ['🐳', '🐳', '🐠', '🐙', '😂', '🐳', '🐠', '😂', '😂', '🐙' ]
 		return (
 			<div className='area'>
 				<ul className='circles'>{emojis.map((emoji, i) => <li key={i}>{emoji}</li>)}</ul>
