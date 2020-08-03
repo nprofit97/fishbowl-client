@@ -9,37 +9,22 @@ class App extends Component {
 	state = {
 		is_host: false,
 		game: undefined,
-		isLoading: false,
 		message: ''
 	}
 
 	handleEnterGame = (roomCode) => {
-		this.setState({ isLoading: true })
 		fetch(this.API_URL + 'games').then((res) => res.json()).then((games) => {
 			const game = games.find((game) => game.room_code === roomCode.toUpperCase())
 
 			if (game && game.round_number === 0) {
-				this.setState({ game: game, isLoading: false })
+				this.setState({ game: game})
 			} else {
-				this.setState({ message: 'Room not found.', isLoading: false })
-			}
-		})
-	}
-
-	// Quick join a game that has not started yet
-	handleQuickJoin = () => {
-		this.setState({ isLoading: true })
-		fetch(this.API_URL + 'games/quick_join').then((res) => res.json()).then((game) => {
-			if (game && game.round_number === 0) {
-				this.setState({ game: game, isLoading: false })
-			} else {
-				this.setState({ message: 'No active game found.', isLoading: false })
+				this.setState({ message: 'Room not found.'})
 			}
 		})
 	}
 
 	handleCreateNewGame = () => {
-		this.setState({ isLoading: true })
 		fetch(this.API_URL + 'games', {
 			method: 'POST',
 			headers: {
@@ -47,11 +32,11 @@ class App extends Component {
 			}
 		})
 			.then((res) => res.json())
-			.then((game) => this.setState({ game: game, is_host: true, isLoading: false, message: '' }))
+			.then((game) => this.setState({ game: game, is_host: true, message: '' }))
 	}
 	
 	renderBackgroundEmojis = () => {
-		let emojis = ['🐳', '🐳', '🐠', '🐙', '😂', '🐳', '🐠', '😂', '🐙', '😂' ]
+		let emojis = ['🐳', '🐳', '🐠', '😂', '🐙', '🐳', '🐠', '😂', '🐙', '😂' ]
 		return (
 			<div className='area'>
 				<ul className='circles'>{emojis.map((emoji, i) => <li key={i}>{emoji}</li>)}</ul>
@@ -64,7 +49,7 @@ class App extends Component {
 	}
 
 	render() {
-		const { game, is_host, isLoading, message } = this.state
+		const { game, is_host, message } = this.state
 
 		return (
 			<div className='App'>
@@ -77,7 +62,6 @@ class App extends Component {
 						<NewGameForm
 							handleEnterGame={this.handleEnterGame}
 							handleCreateNewGame={this.handleCreateNewGame}
-							handleQuickJoin={this.handleQuickJoin}
 						/>
 						<br />
 						<div>
